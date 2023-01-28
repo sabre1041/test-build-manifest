@@ -51,10 +51,12 @@ jobs:
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
       - name: Build container image and push
-        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 #pin@v3.2.0
+        #uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5 #pin@v3.2.0
+        uses: docker/build-push-action@v3
         with:
           context: .
           file: Dockerfile
+          provenance: false
           platforms: ${{ matrix.platform }}
           push: true
           tags: |
