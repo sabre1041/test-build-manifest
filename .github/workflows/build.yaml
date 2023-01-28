@@ -6,6 +6,9 @@ on:
     tags:
       - v*
 
+permissions:
+  packages: write
+
 jobs:
   setup:
     uses: ./.github/workflows/setup.yaml
@@ -17,9 +20,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     needs: ["setup"]
-    permissions:
-      contents: write
-      packages: write
     strategy:
       matrix:
         platform: ${{ fromJson(needs.setup.outputs.dist_matrix) }}
