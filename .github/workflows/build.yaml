@@ -57,7 +57,7 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          provenance: false
+#          provenance: false
           platforms: ${{ matrix.platform }}
           push: true
           tags: |
